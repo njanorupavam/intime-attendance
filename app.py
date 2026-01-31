@@ -158,7 +158,8 @@ def api_get_attendance():
             try:
                 attended, total = map(int, attendance.split(' ')[0].split('/'))
                 attendance_data.append({
-                    "subject": subject_name,
+                    "subject": subject,
+                    "subject_name": subject_name,
                     "attended": attended,
                     "total": total
                 })

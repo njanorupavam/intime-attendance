@@ -476,8 +476,8 @@ function Dashboard({ username, onLogout }) {
                                     </div>
                                     <div className="flex-1 min-w-0">
                                         <p className="font-bold text-purple-700 text-sm truncate">{subject.subject}</p>
-                                        <p className="text-xs text-gray-600 mt-1">
-                                            {subject.attended}/{subject.total} · {((subject.attended / subject.total) * 100).toFixed(1)}%
+                                        <p className="text-xs text-gray-600 mt-1 truncate">
+                                            {subject.subject_name !== subject.subject ? subject.subject_name : 'Subject Name Not Available'}
                                         </p>
                                     </div>
                                 </div>
