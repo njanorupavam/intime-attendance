@@ -426,11 +426,11 @@ function Dashboard({ username, onLogout }) {
 
                                                 if (percentage < 75) {
                                                     const classesNeeded = Math.ceil((0.75 * subject.total - subject.attended) / 0.25);
-                                                    actionText = `${classesNeeded} class vendum`; // Shortened for mobile
+                                                    actionText = `${classesNeeded} period koodi classil kerr`;
                                                     actionColor = 'text-red-600 bg-red-50';
                                                 } else {
                                                     const canBunk = Math.floor((subject.attended / 0.75) - subject.total);
-                                                    actionText = canBunk > 0 ? `${canBunk} bunk ok` : 'Maintain'; // Shortened
+                                                    actionText = canBunk > 0 ? `${canBunk} claas chadikyo.. safeaaa` : 'Maintain';
                                                     actionColor = 'text-green-600 bg-green-50';
                                                 }
 
