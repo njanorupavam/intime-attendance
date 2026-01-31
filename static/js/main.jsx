@@ -469,19 +469,21 @@ function Dashboard({ username, onLogout }) {
                     <div className="bg-white rounded-xl shadow-sm p-4 md:p-6 mt-6">
                         <h2 className="text-lg font-semibold text-gray-800 mb-4">📚 Subject Codes</h2>
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
-                            {data.attendance_data.map((subject, idx) => (
-                                <div key={idx} className="flex items-start p-3 bg-gradient-to-r from-purple-50 to-blue-50 rounded-lg border border-purple-100">
-                                    <div className="flex-shrink-0 w-6 h-6 bg-purple-500 text-white rounded-full flex items-center justify-center font-bold text-xs mr-2 mt-0.5">
-                                        {idx + 1}
+                            {data.attendance_data
+                                .filter(subject => !['ECD334', 'SGA', 'Total'].includes(subject.subject))
+                                .map((subject, idx) => (
+                                    <div key={idx} className="flex items-start p-3 bg-gradient-to-r from-purple-50 to-blue-50 rounded-lg border border-purple-100">
+                                        <div className="flex-shrink-0 w-6 h-6 bg-purple-500 text-white rounded-full flex items-center justify-center font-bold text-xs mr-2 mt-0.5">
+                                            {idx + 1}
+                                        </div>
+                                        <div className="flex-1 min-w-0">
+                                            <p className="font-bold text-purple-700 text-sm truncate">{subject.subject}</p>
+                                            <p className="text-xs text-gray-600 mt-1 truncate">
+                                                {subject.subject_name !== subject.subject ? subject.subject_name : 'Subject Name Not Available'}
+                                            </p>
+                                        </div>
                                     </div>
-                                    <div className="flex-1 min-w-0">
-                                        <p className="font-bold text-purple-700 text-sm truncate">{subject.subject}</p>
-                                        <p className="text-xs text-gray-600 mt-1 truncate">
-                                            {subject.subject_name !== subject.subject ? subject.subject_name : 'Subject Name Not Available'}
-                                        </p>
-                                    </div>
-                                </div>
-                            ))}
+                                ))}
                         </div>
                     </div>
                 </div>
